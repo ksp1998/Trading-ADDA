@@ -2,18 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Trading Adda</title>
     <link type="text/css" rel="stylesheet" href="styles/login.css" />
   </head>
   <body>
     <div id="login_form" class="animate">
 
       <form action="?" method="post">
-        Username<br>
-        <input type="text" name="username" placeholder="Enter Username..." />
+        Email<br>
+        <input type="email" name="email" placeholder="Enter Email..." required/>
         <br><br>
         Password<br>
-        <input type="password" name="password" placeholder="Enter Password..." />
+        <input type="password" name="password" placeholder="Enter Password..." required/>
         <br><br>
         <input type="submit" name="submit" value="LOGIN">
         <br>
@@ -22,14 +21,20 @@
     </div>
     <div id="register_form" class="animate">
       <form action="?" method="post">
-        Username<br>
-        <input type="text" name="username" placeholder="Enter Username..." />
+        First Name<br>
+        <input type="text" name="fname" placeholder="Enter First Name..." required/>
         <br><br>
-        Password<br>
-        <input type="password" name="password" placeholder="Enter Password..." />
+        Last Name<br>
+        <input type="text" name="lname" placeholder="Enter Last Name..." required/>
         <br><br>
         Email
-        <input type="email" name="email" placeholder="Enter Email..." />
+        <input type="email" name="email" placeholder="Enter Email..." required/>
+        <br><br>
+        Password<br>
+        <input type="password" name="password" placeholder="Enter Password..." required/>
+        <br><br>
+        Confirm Password<br>
+        <input type="password" name="confirm_password" placeholder="Re-enter Password..." required/>
         <br><br>
         <input type="submit" name="submit" value="REGISTER">
         <br>

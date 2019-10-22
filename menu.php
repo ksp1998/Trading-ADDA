@@ -22,8 +22,8 @@
         </div>
       </div>
 
-      <a class="menu_link" href="help.php"><p align="center">HELP</p></a>
-      <a class="menu_link" href="contact_us.php"><p align="center">ABOUT US</p></a>
+      <a class="menu_link" href="about_us.php"><p align="center">CONTACT US</p></a>
+      <a class="menu_link" href="about_us.php"><p align="center">ABOUT US</p></a>
       <!--<a class="user_link" href="signup.php"><p align="center">SIGN UP</p></a>-->
       <button id="login_btn" class="user_link" onclick="document.getElementById('show_login_form').style.display='block'"><p align="center">LOGIN</p></button>
       <p class="search_box">

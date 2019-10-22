@@ -43,22 +43,10 @@ span {
 .data_cards h1 {
   padding: 40px 40px 0 40px;
 }
-legend {
-  position: static;
-  text-align: center;
-  padding: 10px 50px;
-  color: #fff;
-  background-color: #333;
-  border-radius: 10px;
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 40px;
-  box-shadow: 4px 4px 10px black;
-  text-shadow: 2px 2px 2px yellow;
-}
+
 .data_cards table {
   width: 100%;
-  background-color: #fcfcfc;
+  background-color: #efefef;
 }
 .data_cards table td {
   width: 25%;

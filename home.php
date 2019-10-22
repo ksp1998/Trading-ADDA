@@ -43,6 +43,9 @@
         include('login.php');
       ?>
     </div>
+    <?php
+      include('footer.html');
+    ?>
     <script>
       // Get the form
       var container = document.getElementById('show_login_form');
