@@ -1,11 +1,8 @@
 <?php
   $SERVER = 'localhost';
-  $USERNAME = '';
+  $USERNAME = 'root';
   $PASSWORD = '';
-  $DB = 'Trading_ADDA';
+  $DB = 'trading_adda';
 
-  $conn = mysqli_db_connect($SERVER, $USERNAME, $PASSWORD) or die("Unable to connect!");
-  if($conn)
-    mysqli_select_db($DB);
-
+  $con = mysqli_connect($SERVER, $USERNAME, $PASSWORD, $DB) or die("Unable to connect!");
 ?>

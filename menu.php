@@ -11,14 +11,17 @@
       <a class="menu_link" href="home.php"><p align="center">HOME</p></a>
 
       <div class="dropdown">
-        <a class="menu_link" href="#"><p align="center">CATEGORIES</p></a>
+        <a class="menu_link" href="home.php"><p align="center">CATEGORIES</p></a>
         <div class="categories">
-          <a href="#">Electronics & Appliances</a>
-          <a href="#">Fashion</a>
-          <a href="#">Furniture</a>
-          <a href="#">Vehicles</a>
-          <a href="#">Books</a>
-          <a href="#">Sports</a>
+          <form action="" method="post">
+            <button name="electronics">Electronics & Appliances</button>
+            <button name="fashion">Fashion</button>
+            <button name="furniture">Furniture</button>
+            <button name="vehicles">Vehicles</button>
+            <button name="books">Books</button>
+            <button name="sports">Sports</button>
+            <button name="other">Other</button>
+        </form>
         </div>
       </div>
 

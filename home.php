@@ -15,28 +15,10 @@
       <span>- Trade Goods Online</span>
     </div>-->
     <div class="data_cards">
-      <h1>Recommended Products</h1>
-      <table border='0' cellspacing='40'>
-        <?php
-          $images = array("car.jpg", "ball.jpg", "iphone.jpg", "chair.jpg", "laptop.jpg", "shoes.jpg");
-          for($i = 0; $i < 10; $i++) {
-            echo "<tr>";
-              for($j = 0; $j < 4; $j++) {
-                $n = rand(0, 5);
-                echo "
-                  <td>
-                    <div class='product_img'>
-                      <img src='images/$images[$n]' alt='Product image'>
-                    </div>
-                    <div class='product_name' >
-                        Product name
-                    </div>
-                  </td>";
-              }
-            echo "</tr>";
-          }
-        ?>
-      </table>
+      <h1 class="heading">Recommended Products</h1>
+      <?php
+        include("scripts/show_products.php");
+      ?>
     </div>
     <div id="show_login_form" align="center">
       <?php
