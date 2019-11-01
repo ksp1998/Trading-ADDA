@@ -25,9 +25,8 @@
       echo "<table><tr name='product_field' class='product_field'>";
       echo "<td class='product_img'>
               <div>
-                <a href='http://localhost/TRADINGADDA/images/$images[$i]'><img src='images/".$images[$i]."' alt='Product image'></a>
-                <!--<img src='data:image;base64,".$row['product_image']."' alt='Product image'>-->
-              </div
+                <a href='http://localhost/TRADINGADDA/images/".$row['product_image']."'><img src='images/".$row['product_image']."' alt='Product image'></a>
+              </div>
             </td>";
       echo "<td class='product_details'>
               <div>

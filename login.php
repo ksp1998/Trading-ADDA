@@ -2,6 +2,10 @@
   $error = NULL;
   require "scripts/db_connection.php";
 
+  $name = "";
+  $dob = "";
+  $email = "";
+
   if($con) {
     // Get Form Data
     if(isset($_POST['register'])) {
@@ -12,10 +16,10 @@
       $password = $_POST['password'];
       $confirm_password = $_POST['confirm_password'];
 
-      if(strlen($name) < 1)
-        $error = "Please enter valid name!";
+      if(strlen($name) <= 1)
+        $error = "<h3 style='color: red;'>Please enter valid name!</h3>";
       elseif($password != $confirm_password)
-        $error = "Oops! Password mismatch";
+        $error = "<h3 style='color: red;'>Oops... Password mismatch!</h3>";
       else {
         // Checking for email already registerd or not
         $query = "SELECT * FROM user WHERE email = '$email'";
@@ -23,7 +27,7 @@
         $row = mysqli_fetch_array($result);
         //var_dump($result);
         if(!empty($row))
-          $error = "Provided email id is already registerd! Please login";
+          $error = "<h3 style='color: red;'>Provided email id is already registerd! Please login...</h3>";
         else {
           /*
           // If not registered, verify email
@@ -44,12 +48,13 @@
           $query = "INSERT INTO user values('$name', '$dob', '$email', '$password')";
           $result = mysqli_query($con, $query);
           if($result) {
-            $error = "Inserted Successfully...!";
+            $error = "<h3 style='color: green;'>Inserted Successfully...!</h3>";
           }
           else
-            $error = "Failed to insert!";
+            $error = "<h3 style='color: red;'>Failed to insert!</h3>";
         }
       }
+      // show register form
     }
 
     if(isset($_POST['login'])) {
@@ -61,17 +66,23 @@
       $row = mysqli_fetch_array($result);
       //var_dump($result);
       if(!empty($row)) {
-          $name = $row['name'];
-          $error = "Welcome $name";
+          session_start();
+          //$name = $row['name'];
+          //$error = "<h3 style='color: green;'>Welcome $name</h3>";
+          $_SESSION['email'] = $row['email'];
+          ?>
+          <script type='text/javascript'>
+            document.getElementById("login_btn").style.display = 'none';
+            document.getElementById("logout_btn").style.display = 'block';
+          </script>
+          <?php
       }
-      else {
-        $error = "Username or password error!";
-      }
+      else
+        $error = "<h3 style='color: red;'>Username or password error!</h3>";
     }
   }
-  else {
-    $error = "Failed to establish connection with database!";
-  }
+  else
+    $error = "<h3 style='color: red;'>Failed to establish connection with database!</h3>";
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +95,7 @@
     <div id="login_form" class="animate">
       <form action="?" method="post">
         Email<br>
-        <input type="email" name="email" placeholder="Enter Email..." required />
+        <input type="email" name="email" value="<?php echo htmlentities($email); ?>" placeholder="Enter Email..." required />
         <br><br>
         Password<br>
         <input type="password" name="password" placeholder="Enter Password..." required />
@@ -99,13 +110,13 @@
     <div id="register_form" class="animate">
       <form action="?" method="post">
         First Name<br>
-        <input type="text" name="name" title="This field is required" placeholder="Enter Your Name..." required />
+        <input type="text" name="name" value="<?php echo htmlentities($name); ?>" title="This field is required" placeholder="Enter Your Name..." required />
         <br><br>
         Date of Birth
-        <input type="date" name="dob" required/>
+        <input type="date" name="dob" value="<?php echo htmlentities($dob); ?>" required/>
         <br><br>
         Email
-        <input type="email" name="email" placeholder="Enter Email..." required />
+        <input type="email" name="email" value="<?php echo htmlentities($email); ?>" placeholder="Enter Email..." required />
         <br><br>
         <div class="otp">
           Enter OTP to verify Email Address

@@ -12,7 +12,7 @@
     <div class="container">
     </div>
     <?php
-      include('footer.html');
+      include('footer.php');
     ?>
   </body>
 </html>
