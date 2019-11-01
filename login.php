@@ -12,17 +12,18 @@
       $password = $_POST['password'];
       $confirm_password = $_POST['confirm_password'];
 
-      if(strlen($name) == 0)
+      if(strlen($name) < 1)
         $error = "Please enter valid name!";
       elseif($password != $confirm_password)
         $error = "Oops! Password mismatch";
       else {
         // Checking for email already registerd or not
-        $query = "SELECT * FROM user WHERE email = '$email' limit 1";
+        $query = "SELECT * FROM user WHERE email = '$email'";
         $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
         //var_dump($result);
-        if($result)
-          $error = "Provided email id is already registered. Please login";
+        if(!empty($row))
+          $error = "Provided email id is already registerd! Please login";
         else {
           /*
           // If not registered, verify email
@@ -39,10 +40,10 @@
           $result = mail($to, $subject, $message, $headers);
           var_dump($result);
           */
-          $password = md5($password);
+          //$password = md5($password);
           $query = "INSERT INTO user values('$name', '$dob', '$email', '$password')";
           $result = mysqli_query($con, $query);
-          if(!empty($result)){
+          if($result) {
             $error = "Inserted Successfully...!";
           }
           else
@@ -54,20 +55,22 @@
     if(isset($_POST['login'])) {
       $email = trim($_POST['email']);
       $password = $_POST['password'];
-      $password = md5($password);
-      $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password' limit 1";
+      //$password = md5($password);
+      $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
       $result = mysqli_query($con, $query);
+      $row = mysqli_fetch_array($result);
       //var_dump($result);
-      if($result){
-        while($row = mysqli_fetch_array($result)) {
+      if(!empty($row)) {
           $name = $row['name'];
           $error = "Welcome $name";
-			  }
       }
       else {
-        $error = "USername or password error!";
+        $error = "Username or password error!";
       }
     }
+  }
+  else {
+    $error = "Failed to establish connection with database!";
   }
 ?>
 
