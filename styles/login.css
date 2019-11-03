@@ -34,7 +34,11 @@
   border: none;
   outline: none;
   color: red;
+}
 
+.change_form:hover {
+  color: blue;
+  cursor: pointer;
 }
 
 input[type=submit] {

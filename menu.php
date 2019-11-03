@@ -29,7 +29,7 @@
       <a class="menu_link" href="about_us.php"><p align="center">ABOUT US</p></a>
       <!--<a class="user_link" href="signup.php"><p align="center">SIGN UP</p></a>-->
       <button id="login_btn" class="user_link" onclick="document.getElementById('show_login_form').style.display='block'"><p align="center">LOGIN</p></button>
-      <button id="logout_btn" class="user_link" onclick="" style='display: none;'><p align="center">LOGOUT</p></button>
+      <button id="logout_btn" class="user_link" onclick="document.getElementById('logout_btn').style.display='none';document.getElementById('login_btn').style.display='block'" style='display: none;'><p align="center">LOGOUT</p></button>
       <p class="search_box">
         <a href="#"><img class="search_btn" src="images/search_icon.jpg" /></a>
         <input type="search" placeholder="Search Item..."/>
