@@ -13,7 +13,7 @@
   <body>
     <?php
       include('menu.php');
-      if(isset($_SESSION['email'])) {
+      if($_SESSION['isLogin'] == true) {
         // If logged in, hide login option and show profile link & logout option
         ?>
         <script type='text/javascript'>

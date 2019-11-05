@@ -14,7 +14,7 @@
   <body>
     <?php
       include('menu.php');
-      if(isset($_SESSION['email'])) {
+      if($_SESSION['isLogin'] == true) {
         // If logged in, hide login option and show profile link & logout option
         ?>
         <script type='text/javascript'>
@@ -36,7 +36,7 @@
     <footer>
       <?php include('footer.php'); ?>
     </footer>
-    <script>
+    <!--<script>
       // Get the form
       var container = document.getElementById('show_login_form');
       // When the user clicks anywhere outside of the form, close it
@@ -45,6 +45,6 @@
               container.style.display = "none";
           }
       }
-    </script>
+    </script>-->
   </body>
 </html>

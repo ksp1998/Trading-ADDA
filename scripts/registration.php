@@ -64,45 +64,49 @@
 
   // Check for valid name
   if(strlen($name) <= 1)
-    $error = "<h3 style='color: red;'>Please enter valid name!</h3>";
+    $register_msg = "<h3 style='color: red;'>Please enter valid name!</h3>";
 
   // Check whether password is of correct length
   elseif(strlen($password) < 6)
-    $error = "<h3 style='color: red;'>Password length should be greter than or equal to 6 characters!</h3>";
+    $register_msg = "<h3 style='color: red;'>Password length should be greter than or equal to 6 characters!</h3>";
 
   // Check whether password matching
   elseif($password != $confirm_password)
-    $error = "<h3 style='color: red;'>Oops... Password mismatch!</h3>";
+    $register_msg = "<h3 style='color: red;'>Oops... Password mismatch!</h3>";
 
   // If everthing fine go ahead
   else {
 
     if(!empty(checkEmail($con, $email)))
-      $error = "<h3 style='color: red;'>Provided email id is already registered! Please login...</h3>";
+      $register_msg = "<h3 style='color: red;'>Provided email id is already registered! Please login...</h3>";
 
     // If not registered
 
     else {
       // Generate randon 6 digit OTP
       $otp = rand(000000, 999999);
-
+      $_SESSION['sent_otp'] = $otp;
       $subject = "Email verification...";
       $message = "Your OTP for registration on Trading ADDA is <b>$otp</b><br>If you are not aware of this activity please ignore this email.";
 
       // Sending an email with OTP to entered email address
       if(mailToApplicant($email, $subject, $message)) {
-        $error = "<h4 style='color: blue;'>OTP successfully sent to $email</h4>";
+        $register_msg = NULL;
+        $otp_msg = "<h4 style='color: blue;'>OTP successfully sent to $email</h4>";
 
         // Showing fields for OTP if email sended successfully
 
         ?>
-        <style> .otp { display: block; } </style>
+        <style>
+          #otp_verify_form { display: block; }
+          #register_form { display: none; }
+        </style>
         <?php
       }
 
       // If failure in sending an email
       else
-        $error = "<h3 style='color: red;'>Something is bad with an email!</h3>";
+        $register_msg = "<h3 style='color: red;'>Something is bad with an email!</h3>";
     }
   }
 

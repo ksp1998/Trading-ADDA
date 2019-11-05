@@ -17,11 +17,11 @@
   //$password = md5($password); // Encrypt Password
 
   if(!empty(checkUser($con, $email, $password))) {
-    $error = NULL;
+    $login_msg = NULL;
     // Start the session
     //session_start();
     // Storing email in session variable
-    $_SESSION['email'] = $email;
+    $_SESSION['isLogin'] = true;
 
     // If Login successfull hide login optio and show profile link & logout option
     ?>
@@ -33,14 +33,14 @@
     <?php
   }
   else
-    $error = "<h3 style='color: red;'>Username or password error!</h3>";
+    $login_msg = "<h3 style='color: red;'>Username or password error!</h3>";
 
   // show login form if invalid credentials
-  if($error != NULL) {
+  if($login_msg != NULL) {
     ?>
     <style>
       #show_login_form, #login_form { display: block; }
-      #register_form { display: none; }
+      #register_form, #otp_verify_form { display: none; }
     </style>
     <?php
   }

@@ -5,7 +5,7 @@
 
   // Get entered otp
   $entered_otp = $_POST['otp'];
-  $otp = $_POST['sent_otp'];
+  $otp = $_SESSION['sent_otp'];
 
   // Check for OTP whether correct or incorrect
 
@@ -31,6 +31,8 @@
     <style> .otp { display: none; } </style>
     <?php
   }
+
+  // If incorrect show error message
   else {
     $error = "<h3 style='color: red;'>Incorrect OTP!</h3>";
     ?>
