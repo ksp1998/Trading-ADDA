@@ -80,14 +80,11 @@
       <center><?php echo $register_msg; ?></center>
     </div>
     <div id="otp_verify_form" class="animate">
-      <div style="width: 100%;">
-        <span style="float: right;" onclick="document.getElementById('show_login_form').style.display='none'" class="close" title="Close Form">&times;</span>
-      </div>
       <form action="" method="post">
         <div class="otp">
           Enter OTP to verify Email Address
           <input type="number" name="otp" placeholder="Enter OTP" />
-          <!--<input type="hidden" name="sent_otp" value="<?php //echo $otp; ?>" />--?
+          <!--<input type="hidden" name="sent_otp" value="<?php //echo $otp; ?>" />-->
           <input type="submit" name="otp_verify" value="Verify" />
           <br><br>
           <center><?php echo $otp_msg; ?></center>

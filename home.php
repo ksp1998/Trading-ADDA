@@ -14,7 +14,7 @@
   <body>
     <?php
       include('menu.php');
-      if($_SESSION['isLogin'] == true) {
+      if(isset($_SESSION['isLogin']) AND $_SESSION['isLogin'] == true) {
         // If logged in, hide login option and show profile link & logout option
         ?>
         <script type='text/javascript'>
@@ -32,7 +32,6 @@
     <div id="show_login_form" align="center">
       <?php include('login_form.php'); ?>
     </div>
-    <?php print_r($_SESSION);  ?>
     <footer>
       <?php include('footer.php'); ?>
     </footer>

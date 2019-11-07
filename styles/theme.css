@@ -105,17 +105,19 @@ body {
 }
 
 .search_box {
+  //background-color: #fff;
   width: 20%;
-  height: 46%;
-  float: right;
-  margin-right: 10px;
-}
-
-.search_box input {
-  width: 60%;
   height: 100%;
   float: right;
-  padding: 0 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.search_box #search {
+  width: 60%;
+  height: 30px;
+  float: right;
+  padding: 5px 10px;
   border-radius: 5px 0 0 5px;
   box-shadow: 0 2px 1px #ddd;
   background-color: #eee;
@@ -124,7 +126,7 @@ body {
   outline: none;
 }
 
-.search_box input:hover {
+.search_box #search:hover {
   width: 80%;
   animation-name: search_box_anim;
   animation-duration: .2s;
@@ -135,18 +137,29 @@ body {
   100%   {width: 80%;}
 }
 
-.search_box input:focus {
+.search_box #search:focus {
   background-color: #fff;
   color: darkgreen;
 }
 
-.search_btn{
+.search_box .search_btn {
+  background-color: #fff;
+  background: url('http://localhost/TRADINGADDA/images/search_icon.jpg');
+  background-size: contain;
   width: 30px;
-  height: 100%;
+  height: 30px;
   float: right;
   border-radius: 0 5px 5px 0;
   box-shadow: 0 2px 1px #ddd;
+  border: 0;
+  display: block;
   border-left: 0.5px solid;
+  outline: none;
+  margin: auto;
+}
+
+.search_box input[type=submit] {
+
 }
 
 #footer {

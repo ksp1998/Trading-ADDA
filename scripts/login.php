@@ -6,6 +6,7 @@
     $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
+    $_SESSION['name'] = $row['name']; 
     //var_dump($result);
     return $row;
   }
@@ -23,7 +24,7 @@
     // Storing email in session variable
     $_SESSION['isLogin'] = true;
 
-    // If Login successfull hide login optio and show profile link & logout option
+    // If Login successfull hide login option and show profile link & logout option
     ?>
     <script type='text/javascript'>
       document.getElementById("login_btn").style.display = 'none';

@@ -31,10 +31,10 @@
       <button id="login_btn" class="user_link" onclick="document.getElementById('show_login_form').style.display='block'"><p align="center">LOGIN</p></button>
       <button id="logout_btn" class="user_link" onclick="document.getElementById('logout_btn').style.display='none';document.getElementById('profile_link').style.display='none';document.getElementById('login_btn').style.display='block'" style='display: none;'><p align="center">LOGOUT</p></button>
       <a id="profile_link" class="user_link" href="user_profile.php" style='display: none;'><p align="center">PROFILE</p></a>
-      <p class="search_box">
-        <a href="#"><img class="search_btn" src="images/search_icon.jpg" /></a>
-        <input type="search" placeholder="Search Item..."/>
-      </p>
+      <form action="" method="post" class="search_box">
+        <p><input class="search_btn" type="submit" name="search" background="images/search_icon.jpg" value="" />
+        <input id="search" type="search" name="search_item" placeholder="Search Item..."/></p>
+      </form>
     </div>
   </body>
 </html>
