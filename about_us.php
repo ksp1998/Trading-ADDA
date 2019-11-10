@@ -27,6 +27,9 @@
         <?php
       }
 
+      if(isset($_POST['electronics']))
+        header('Location:home.php');
+
       if(isset($_POST['send_feedback'])) {
         $query = $_POST['query'];
         if(isset($_SESSION['isLogin'])) {

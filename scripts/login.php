@@ -6,7 +6,7 @@
     $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
-    $_SESSION['name'] = $row['name'];
+    $_SESSION['email'] = $row['email'];
     //var_dump($result);
     return $row;
   }

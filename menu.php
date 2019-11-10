@@ -47,7 +47,8 @@
       </script>
       <?php
         if(isset($_POST['logout_btn'])) {
-          session_unset();
+          $_SESSION['isLogin'] = NULL;
+          $_SESSION['email'] = NULL; 
           header("Location:home.php");
         }
       ?>
