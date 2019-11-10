@@ -6,7 +6,7 @@
     $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
-    $_SESSION['name'] = $row['name']; 
+    $_SESSION['name'] = $row['name'];
     //var_dump($result);
     return $row;
   }
@@ -28,8 +28,9 @@
     ?>
     <script type='text/javascript'>
       document.getElementById("login_btn").style.display = 'none';
-      document.getElementById("profile_link").style.display = 'block';
-      document.getElementById("logout_btn").style.display = 'block';
+      //document.getElementById("profile_link").style.display = 'block';
+      //document.getElementById("logout_btn").style.display = 'block';
+      document.getElementById("loggedin").style.display = 'block';
     </script>
     <?php
   }

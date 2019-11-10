@@ -19,8 +19,7 @@
         ?>
         <script type='text/javascript'>
           document.getElementById("login_btn").style.display = 'none';
-          document.getElementById("profile_link").style.display = 'block';
-          document.getElementById("logout_btn").style.display = 'block';
+          document.getElementById("loggedin").style.display = 'block';
         </script>
         <?php
       }

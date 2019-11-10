@@ -36,6 +36,7 @@
 .data_cards {
   margin-top: 60px;
   width: 100%;
+  min-height: 543px;
   background-color: #fff;
   //padding: 0 10%;
   //border-radius: 0 0 10px 10px;

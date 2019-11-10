@@ -1,10 +1,11 @@
 <style>
 
   .footer {
-    position: absolute;
+    position: static;
     width: 100%;
+    height: 100px;
     padding: 25px 0;
-    //bottom: 0;
+    bottom: 0;
     background-color: #555555;
   }
 
@@ -24,6 +25,7 @@
 
   .desc p {
     color: #fff;
+    font-size: 18px;
   }
 
   #top {
@@ -33,9 +35,9 @@
 </style>
 
 <div class="footer">
-  <a href="about_us.php">Contact Us</a>
+  <!--<a href="about_us.php">Contact Us</a>-->
   <div class="desc" align="center">
-    <p>Copyright © <a id="top" href="#TOP">tradingadda</a> All rights reserved!</p>
+    <p>Copyright © <a id="top" href="home.php">tradingadda</a> All rights reserved!</p>
     <p>This website is developed by Aditya Tiwari & Kiran Suthar</p>
   </div>
 </div>
