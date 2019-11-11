@@ -48,7 +48,7 @@
       <?php
         if(isset($_POST['logout_btn'])) {
           $_SESSION['isLogin'] = NULL;
-          $_SESSION['email'] = NULL; 
+          $_SESSION['email'] = NULL;
           header("Location:home.php");
         }
       ?>
@@ -56,7 +56,7 @@
       <div id="options">
         <form action="" method="post">
           <a name="profile" href="user_profile.php">Profile</a>
-          <button name="add_product">Add Product</button>
+          <a name="add_product" href="add_product_page.php">Add Product</a>
           <button name="logout_btn">LOGOUT</button>
         </form>
       </div>

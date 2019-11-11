@@ -36,13 +36,14 @@
       else
         $error = "<h3 style='color: red;'>Failed to establish connection with database!</h3>";
     ?>
+    
     <div id="login_form" class="animate">
       <div style="width: 100%;">
         <span style="float: right;" onclick="document.getElementById('show_login_form').style.display='none'" class="close" title="Close Form">&times;</span>
       </div>
       <form action="" method="post">
         Email<br>
-        <input type="email" name="email" value="<?php echo htmlentities($email); ?>" placeholder="Enter Email..." required />
+        <input type="email" name="email" value="<?php //echo htmlentities($email); ?>" placeholder="Enter Email..." required />
         <br><br>
         Password<br>
         <input type="password" name="password" placeholder="Enter Password..." required />
@@ -51,7 +52,7 @@
         <br>
       </form>
       Not Registered!&nbsp;<button class="change_form" onclick="document.getElementById('register_form').style.display='block';document.getElementById('login_form').style.display='none';">Register here</button>
-      <center><?php echo $login_msg; ?></center>
+      <center><?php //echo $login_msg; ?></center>
     </div>
 
     <div id="register_form" class="animate">

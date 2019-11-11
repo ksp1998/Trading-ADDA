@@ -1,0 +1,28 @@
+@import "user_profile.css";
+
+
+#product_form {
+  width: 40%;
+  height: 100%;
+  //margin-left: 25px;
+  color: #000;
+  margin: auto;
+
+  border-radius: 10px;
+  background-color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+td {
+  padding: 15px 30px;
+}
+
+textarea, select, input[type=text], input[type=file], input[type=number] {
+  width: 100%;
+  padding: 8px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
