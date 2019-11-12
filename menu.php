@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <a class="menu_link" href="about_us.php"><p align="center">CONTACT US</p></a>
+      <a class="menu_link" href="contact_us.php"><p align="center">CONTACT US</p></a>
       <a class="menu_link" href="about_us.php"><p align="center">ABOUT US</p></a>
       <button id="login_btn" class="user_link" onclick="document.getElementById('show_login_form').style.display='block'">
         <p align="center">LOGIN</p>
@@ -65,7 +65,7 @@
         </form>
       </div>
       <form action="" method="post" class="search_box">
-        <p><input class="search_btn" type="submit" name="search" background="images/search_icon.jpg" value="" />
+        <p><input class="search_btn" type="submit" name="search" value="" />
         <input id="search" type="search" name="search_item" placeholder="Search Item..."/></p>
       </form>
     </div>

@@ -60,7 +60,8 @@
                   <p>Uploaded on - <b>".$row['upload_date']."</b></p>
                   <h3>Rs. ".$row['price']." /-</h3>
               </div>
-              <form action='view_products.php' action='post'>
+              <form action='view_product.php' action='post'>
+                <input type='hidden' name='id' value='".$row['id']."' />
                 <input type='submit' name='checkout' value='CHECKOUT' style='width: 20%; background-color: #38A6F6; font-weight: bold;'/>
               </form>
             </td>

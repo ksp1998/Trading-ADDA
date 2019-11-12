@@ -216,8 +216,8 @@ body {
   border-radius: 0 5px 5px 0;
   box-shadow: 0 2px 1px #ddd;
   border: 0;
-  display: block;
-  border-left: 0.5px solid;
+  //display: block;
+  //border-left: 0.5px solid;
   outline: none;
   margin: auto;
 }

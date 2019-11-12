@@ -47,9 +47,9 @@
   			$result = mysqli_query($con, $query);
 
   			if(!empty($result))
-  				$msg = "<h2 style='color: green;'>Suceessfully inserted...</h2>";
+  				$msg = "<h2 style='color: green;'>Suceessfully added...</h2>";
   			else
-  				$msg = "<h2 style='color: red;'>Failed to insert!</h2>";
+  				$msg = "<h2 style='color: red;'>Failed to add!</h2>";
       }
 		}
     //$msg = $query;

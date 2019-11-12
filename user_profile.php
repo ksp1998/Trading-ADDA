@@ -12,7 +12,7 @@
   </head>
   <body>
     <?php
-      include('menu.php');
+      require 'menu.php';
       require 'scripts/restrict.php';
     ?>
     <div class="container">

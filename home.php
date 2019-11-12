@@ -14,15 +14,7 @@
   <body>
     <?php
       include('menu.php');
-      if(isset($_SESSION['isLogin']) AND $_SESSION['isLogin'] == true) {
-        // If logged in, hide login option and show profile link & logout option
-        ?>
-        <script type='text/javascript'>
-          document.getElementById("login_btn").style.display = 'none';
-          document.getElementById("loggedin").style.display = 'block';
-        </script>
-        <?php
-      }
+      require 'scripts/show_options.php';
     ?>
     <div class="data_cards">
       <h1 class="heading">Recommended Products</h1>
