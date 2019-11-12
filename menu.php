@@ -1,3 +1,7 @@
+<?php
+  //require 'scripts/menu_category.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

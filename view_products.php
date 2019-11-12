@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require 'scripts/menu_category.php';
 ?>
 
 <!DOCTYPE html>

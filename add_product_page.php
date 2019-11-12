@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require 'scripts/menu_category.php';
 
   $msg = "";
   $name = "";
@@ -23,20 +24,7 @@
   <body>
     <?php
       include('menu.php');
-      if($_SESSION['isLogin'] == true) {
-        // If logged in, hide login option and show profile link & logout option
-        ?>
-        <script type='text/javascript'>
-          document.getElementById("login_btn").style.display = 'none';
-          //document.getElementById("profile_link").style.display = 'none';
-          //document.getElementById("logout_btn").style.display = 'block';
-          document.getElementById("loggedin").style.display = 'block';
-        </script>
-        <?php
-      }
-      else {
-        header('Location: home.php');
-      }
+      require 'scripts/restrict.php';
     ?>
     <div class="container">
       <!-- Data Goes Here  -->
@@ -60,7 +48,7 @@
                 <td>Select Product Category</td>
                 <td>
                   <select name="category" required>
-                    <option <?php echo $category == "Electronics & Appliances" ? "selected" : "" ?>>Electronics & Appliances</option>
+                    <option <?php echo $category == "Electronics" ? "selected" : "" ?>>Electronics</option>
                     <option <?php echo $category == "Fashion" ? "selected" : "" ?>>Fashion</option>
                     <option <?php echo $category == "Furniture" ? "selected" : "" ?>>Furniture</option>
                     <option <?php echo $category == "Vehicles" ? "selected" : "" ?>>Vehicles</option>

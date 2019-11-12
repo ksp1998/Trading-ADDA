@@ -1,29 +1,48 @@
 <?php
   require "db_connection.php";
-  $images = array("car.jpg", "ball.jpg", "iphone.jpg", "chair.jpg", "laptop.jpg", "shoes.jpg", "back.jpg");
-  $i = 0;
+
   if($con) {
     $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email";
 
-    if(isset($_POST['electronics']))
+    if(!isset($_SESSION['category']))
+      $_SESSION['category'] = NULL;
+
+    if(isset($_POST['electronics']) OR $_SESSION['category'] == 'electronics')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Electronics'";
-    if(isset($_POST['fashion']))
+
+    if(isset($_POST['fashion']) OR $_SESSION['category'] == 'fashion')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Fashion'";
-    if(isset($_POST['furniture']))
+
+    if(isset($_POST['furniture']) OR $_SESSION['category'] == 'furniture')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Furniture'";
-    if(isset($_POST['vehicles']))
+
+    if(isset($_POST['vehicles']) OR $_SESSION['category'] == 'vehicles')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Vehicles'";
-    if(isset($_POST['books']))
+
+    if(isset($_POST['books']) OR $_SESSION['category'] == 'books')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Books'";
-    if(isset($_POST['sports']))
+
+    if(isset($_POST['sports']) OR $_SESSION['category'] == 'sports')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Sports'";
-    if(isset($_POST['other']))
+
+    if(isset($_POST['other']) OR $_SESSION['category'] == 'other')
       $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Other'";
-    if(isset($_POST['search']))
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email
-                  WHERE products.category = '".$_POST['search_item']."'
-                  OR products.product_name = '".$_POST['search_item']."'
-                  OR user.name = '".$_POST['search_item']."'";
+
+    if(isset($_POST['search']) OR isset($_SESSION['searched'])) {
+      $searched = isset($_POST['search']) ? $_POST['search_item'] : $_SESSION['searched'];
+      if(trim($searched) != "")
+        $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email
+                  WHERE products.category = '$searched'
+                  OR products.product_name = '$searched'
+                  OR user.name = '$searched'";
+      }
+
+    // unset session variables which is set ob other pages
+    if(isset($_SESSION['category']))
+      unset($_SESSION['category']);
+
+    if(isset($_SESSION['searched']))
+      unset($_SESSION['searched']);
 
     $result = mysqli_query($con, $query);
     while($row = mysqli_fetch_array($result)) {
@@ -46,44 +65,7 @@
               </form>
             </td>
           </tr></table>";
-        $i++;
+        //$i++;
     }
   }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-  /*
-    $images = array("car.jpg", "ball.jpg", "iphone.jpg", "chair.jpg", "laptop.jpg", "shoes.jpg");
-    for($i = 0; $i < sizeof($images); $i++) {
-      echo "<tr class='product_field'>
-              <td class='product_img'>
-                <div>
-                  <img src='images/$images[$i]' alt='Product image'>
-                </div
-              </td>
-              <td class='product_details'>
-                <div>
-                    <p>".str_replace(".jpg", "", $images[$i])."</p>
-                    <p>Description</p>
-                    <p>Uploaded By</p>
-                    <p>Uploaded on</p>
-                </div>
-              </td>
-            </tr>";
-    }
-  */
 ?>

@@ -38,7 +38,7 @@
       if($price <= 0)
         $msg = "<h3 style='color: red;'>Please suggest valid price!</h3>";
       else {
-        date_default_timezone_set('Asia/Kolkata'); 
+        date_default_timezone_set('Asia/Kolkata');
         $query = "INSERT INTO products (product_name, ";
         $query .= ($desc != "") ? "description, " : "";
         $query .= "product_image, upload_date, category, price, user_email) VALUES('$name', ";

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8">
     <title>Trading ADDA</title>
-    <link type="text/css" rel="stylesheet" href="styles/theme.css" />
+    <!--<link type="text/css" rel="stylesheet" href="styles/theme.css" />-->
     <link type="text/css" rel="stylesheet" href="styles/home.css" />
   </head>
   <body>
