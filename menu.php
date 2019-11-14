@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="styles/theme.css" />
     <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel = "icon" href = "http://localhost/TRADINGADDA/images/logo.png" type = "image/x-icon" />
   </head>
   <body>
     <div class="nav_bar">
@@ -18,7 +19,7 @@
         <button class="menu_link" ><p align="center">CATEGORIES</p></button>
         <div class="categories">
           <form action="" method="post">
-            <button id="catgory" name="electronics">Electronics & Appliances</button>
+            <button id="catgory" name="electronics">Electronics</button>
             <button id="catgory" name="fashion">Fashion</button>
             <button id="catgory" name="furniture">Furniture</button>
             <button id="catgory" name="vehicles">Vehicles</button>
@@ -60,6 +61,7 @@
       <div id="options">
         <form action="" method="post">
           <a name="profile" href="user_profile.php">Profile</a>
+          <a name="my_product" href="my_product.php">My Products</a>
           <a name="add_product" href="add_product_page.php">Add Product</a>
           <button name="logout_btn">LOGOUT</button>
         </form>

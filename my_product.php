@@ -8,13 +8,19 @@
   <head>
     <meta charset="utf-8">
     <title>Product View</title>
-    <link type="text/css" rel="stylesheet" href="styles/view_product.css" />
+    <link type="text/css" rel="stylesheet" href="styles/home.css" />
+    <link type="text/css" rel="stylesheet" href="styles/user_profile.css" />
+    <style>
+      .product_details {
+        text-align: left;
+      }
+    </style>
   </head>
   <body>
     <?php
       include('menu.php');
       require 'scripts/show_options.php';
-
+      require 'scripts/myproduct.php';
     ?>
     <div class="container">
       <div class = "card">
@@ -22,10 +28,11 @@
           require "scripts/db_connection.php";
 
           if($con) {
-            if(!isset($_POST['id']))
+            if(!isset($_SESSION['isLogin']))
               header("Location:home.php");
 
-            $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.id = ".$_POST['id'];
+            $query = "SELECT * FROM products WHERE user_email = '".$_SESSION['email']."'";
+            //echo $query;
             $result = mysqli_query($con, $query);
             while($row = mysqli_fetch_array($result)) {
               echo "
@@ -43,17 +50,17 @@
                         <p>Product : <b>".$row['product_name']."</b></p>
                         <p>Description - <b>".$row['description']."</b></p>
                         <p>Category - <b>".$row['category']."</b></p>
-                        <p>Uploaded by - <b>".$row['name']."</b></p>
                         <p>Uploaded on - <b>".$row['upload_date']."</b></p>
                         <h3>Rs. ".$row['price']." /-</h3>
-                    ";
-                    if(isset($_SESSION['isLogin']) and $row['availability'] == "true")
-                      echo "<h2 style='color: green;'>Product is available...<br><br>You can contact to <span style='color: blue;'>".$row['name']."</span> using email <span style='color: blue;'>".$row['email']."</span> regarding this product...<h2>";
-                    elseif($row['availability'] == "false")
-                      echo "<h2 style='color: red;'>Oops! product has been sold...<h2>";
-                    else
-                      echo "<h2 style='color: red;'><span style='color: green;'>Product is available...<br><br></span>Please login to contact with <span style='color: blue;'>".$row['name']."</span> regarding this product...<h2>";
-                    echo "
+                        <h3>Status - ";
+                        echo $row['availability'] == "true" ? "<span style='color: red;'>Currently Runnung</span>" : "<span style='color: green;'>Sold</span>";
+                        echo "</h3>
+                        <form action='' method='post'>
+                          <input type='hidden' name='id' value='".$row['id']."' />
+                          <input type='hidden' name='availability' value='".($row['availability'] == 'true' ? 'false' : 'true')."' />
+                          <input type='submit' name='remove' value='REMOVE' style='width: 20%; background-color: red; font-weight: bold;'/>
+                          <input type='submit' name='sold' value='".($row['availability'] == 'true' ? 'MARK AS SOLD' : 'POST AGAIN')."' style='width: 20%; background-color: #38A6F6; font-weight: bold;'/>
+                        </form>
                       </div>
                     </td>
                   </tr>

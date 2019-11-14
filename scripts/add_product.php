@@ -6,7 +6,7 @@
 
 		$image = $_FILES["image"];
 		$source = $image['tmp_name'];
-		$destination = "images/".$image['name'];
+		$destination = "images/products/".$image['name'];
 		$extension = strtolower(substr($image['name'], strpos($image['name'], '.')));
 		if($image['name'] == "")
 			$GLOBALS['msg'] = "<h2 style='color: red;'>Please select product image!</h2>";

@@ -49,7 +49,7 @@
       echo "<table><tr name='product_field' class='product_field'>";
       echo "<td class='product_img'>
               <div>
-                <a href='http://localhost/TRADINGADDA/images/".$row['product_image']."'><img src='images/".$row['product_image']."' alt='Product image'></a>
+                <a href='http://localhost/TRADINGADDA/images/products/".$row['product_image']."'><img src='images/products/".$row['product_image']."' alt='Product image'></a>
               </div>
             </td>";
       echo "<td class='product_details'>
@@ -60,7 +60,7 @@
                   <p>Uploaded on - <b>".$row['upload_date']."</b></p>
                   <h3>Rs. ".$row['price']." /-</h3>
               </div>
-              <form action='view_product.php' action='post'>
+              <form action='view_product.php' method='post'>
                 <input type='hidden' name='id' value='".$row['id']."' />
                 <input type='submit' name='checkout' value='CHECKOUT' style='width: 20%; background-color: #38A6F6; font-weight: bold;'/>
               </form>
