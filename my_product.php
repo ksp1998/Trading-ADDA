@@ -19,13 +19,14 @@
   <body>
     <?php
       include('menu.php');
+      require "scripts/db_connection.php";
       require 'scripts/show_options.php';
       require 'scripts/myproduct.php';
     ?>
     <div class="container">
       <div class = "card">
+        <h1>Your products</h1>
         <?php
-          require "scripts/db_connection.php";
 
           if($con) {
             if(!isset($_SESSION['isLogin']))
@@ -34,6 +35,8 @@
             $query = "SELECT * FROM products WHERE user_email = '".$_SESSION['email']."'";
             //echo $query;
             $result = mysqli_query($con, $query);
+            if(empty(mysqli_query($con, $query)))
+              echo "<h1 style='color: red;'>You don't have currently online running product...<h1>";
             while($row = mysqli_fetch_array($result)) {
               echo "
                   <table>
@@ -53,7 +56,7 @@
                         <p>Uploaded on - <b>".$row['upload_date']."</b></p>
                         <h3>Rs. ".$row['price']." /-</h3>
                         <h3>Status - ";
-                        echo $row['availability'] == "true" ? "<span style='color: red;'>Currently Runnung</span>" : "<span style='color: green;'>Sold</span>";
+                        echo $row['availability'] == "true" ? "<span style='color: red;'>Currently online...</span>" : "<span style='color: green;'>Sold</span>";
                         echo "</h3>
                         <form action='' method='post'>
                           <input type='hidden' name='id' value='".$row['id']."' />

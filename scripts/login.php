@@ -7,6 +7,7 @@
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_array($result);
     $_SESSION['email'] = $row['email'];
+    $_SESSION['name'] = $row['name'];
     //var_dump($result);
     return $row;
   }

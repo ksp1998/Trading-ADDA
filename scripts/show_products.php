@@ -2,40 +2,42 @@
   require "db_connection.php";
 
   if($con) {
-    $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email";
+    $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email AND products.availability = 'true'";
 
     if(!isset($_SESSION['category']))
       $_SESSION['category'] = NULL;
 
     if(isset($_POST['electronics']) OR $_SESSION['category'] == 'electronics')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Electronics'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Electronics' AND products.availability = 'true'";
 
     if(isset($_POST['fashion']) OR $_SESSION['category'] == 'fashion')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Fashion'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Fashion' AND products.availability = 'true'";
 
     if(isset($_POST['furniture']) OR $_SESSION['category'] == 'furniture')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Furniture'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Furniture' AND products.availability = 'true'";
 
     if(isset($_POST['vehicles']) OR $_SESSION['category'] == 'vehicles')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Vehicles'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Vehicles' AND products.availability = 'true'";
 
     if(isset($_POST['books']) OR $_SESSION['category'] == 'books')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Books'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Books' AND products.availability = 'true'";
 
     if(isset($_POST['sports']) OR $_SESSION['category'] == 'sports')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Sports'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Sports' AND products.availability = 'true'";
 
     if(isset($_POST['other']) OR $_SESSION['category'] == 'other')
-      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Other'";
+      $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email WHERE products.category = 'Other' AND products.availability = 'true'";
 
     if(isset($_POST['search']) OR isset($_SESSION['searched'])) {
       $searched = isset($_POST['search']) ? $_POST['search_item'] : $_SESSION['searched'];
-      if(trim($searched) != "")
+      if(trim($searched) != "") {
+        $searched = ucwords($searched);
         $query = "SELECT * FROM products INNER JOIN user ON products.user_email = user.email
                   WHERE products.category = '$searched'
                   OR products.product_name = '$searched'
                   OR user.name = '$searched'";
       }
+    }
 
     // unset session variables which is set ob other pages
     if(isset($_SESSION['category']))

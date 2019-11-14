@@ -24,7 +24,7 @@
           if(isset($_SESSION['isLogin'])) {
             $to = "thakurtradingadda@gmail.com";
             $subject = "User query...";
-            $message = $query."<br><span style='float: right'><b>- ".$_SESSION['name']."</b></span>";
+            $message = $query."<br><span style='float: right;margin-right: 100px;'><b>- ".$_SESSION['name']."</b></span>";
             require 'scripts/mail.php';
             if(mailToApplicant($to, $subject, $message))
               $msg = "<h2 style='color: green;'>Your query has been sent...</h2>";

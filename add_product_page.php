@@ -29,6 +29,7 @@
     <div class="container">
       <!-- Data Goes Here  -->
       <div class="card">
+        <center><h1>Add product</h1></center>
         <div id="product_form">
           <form action="" method="post" enctype="multipart/form-data">
             <table>

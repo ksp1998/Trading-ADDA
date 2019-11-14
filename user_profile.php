@@ -18,6 +18,7 @@
     <div class="container">
       <!-- Data Goes Here  -->
       <div class="card" align="center">
+        <h1>Your Information</h1>
         <div id="profile_image"><img src="images/profile_logo.png"></div>
         <div id="profile_info">
           <?php

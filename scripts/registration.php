@@ -73,7 +73,7 @@
 
       // If failure in sending an email
       else
-        $register_msg = "<h3 style='color: red;'>Something is bad with an email!</h3>";
+        $register_msg = "<h3 style='color: red;'>Oops! You are not connected to internet!</h3>";
     }
   }
 
@@ -82,6 +82,7 @@
 ?>
 <style>
   #show_login_form { display: block; }
+  #register_form { display: block; }
   #login_form { display: none; }
 </style>
 <?php
