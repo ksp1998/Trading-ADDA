@@ -10,7 +10,7 @@
   // Check for OTP whether correct or incorrect
 
   //if($entered_otp == $otp || true) {    // uncomment for register any email
-  if($entered_otp == $otp)
+  if($entered_otp == $otp) {
     // If correct otp, register user
 
     $query = "INSERT INTO user values('".$_SESSION['name']."', '".$_SESSION['dob']."', '".$_SESSION['email']."', '".$_SESSION['password']."')";

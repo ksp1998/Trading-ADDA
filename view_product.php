@@ -48,7 +48,7 @@
                         <p>Uploaded on - <b>".$row['upload_date']."</b></p>
                         <h3>Rs. ".$row['price']." /-</h3>
                     ";
-                    if($row['email'] == $_SESSION['email'])
+                    if(isset($_SESSION['email']) AND $row['email'] == $_SESSION['email'])
                       echo "<h2 style='color: green;'>Your product is currently online...<h2>";
                     elseif(isset($_SESSION['isLogin']) and $row['availability'] == "true")
                       echo "<h2 style='color: green;'>Product is available...<br><br>You can contact to <span style='color: blue;'>".$row['name']."</span> using email <span style='color: blue;'>".$row['email']."</span> regarding this product...<h2>";
